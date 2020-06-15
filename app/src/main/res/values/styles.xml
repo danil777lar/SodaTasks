@@ -1,0 +1,117 @@
+<resources>
+
+  <attr name="tab1" format="color"/>
+  <attr name="tab1Dark" format="color"/>
+  <attr name="tab2" format="color"/>
+  <attr name="tab2Dark" format="color"/>
+  <attr name="tab3" format="color"/>
+  <attr name="tab3Dark" format="color"/>
+    <attr name="textColor" format="color"/>
+    <attr name="titleTextColor" format="color"/>
+    <attr name="appBarTextColor" format="color"/>
+    <attr name="textColorMain" format="color"/>
+    <attr name="textColorSub" format="color"/>
+  <attr name="dialogText" format="color"/>
+  <attr name="dialogTextSub" format="color"/>
+  <attr name="dialogText2" format="color"/>
+  <attr name="dialogTextSub2" format="color"/>
+
+  <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/darkThemeLevel1</item>
+        <item name="colorPrimaryDark">@color/darkThemeLevel3</item>
+        <item name="colorAccent">@color/darkThemeLevel1</item>
+    </style>
+
+  <style name="AppThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/primaryD</item>
+    <item name="colorPrimaryDark">@color/primaryDarkD</item>
+    <item name="colorSecondary">@color/primaryDarkD</item>
+    <item name="colorAccent">@color/accentD</item>
+    <item name="background">@color/backgroundD</item>
+    <item name="tab1">@color/tab1D</item>
+    <item name="tab1Dark">@color/tab1DarkD</item>
+    <item name="tab2">@color/tab2D</item>
+    <item name="tab2Dark">@color/tab2DarkD</item>
+    <item name="tab3">@color/tab3D</item>
+    <item name="tab3Dark">@color/tab3DarkD</item>
+
+    <item name="dialogText">@color/darkThemeLevel1text</item>
+    <item name="dialogTextSub">@color/darkThemeLevel1subtext</item>
+    <item name="dialogText2">@color/darkThemeLevel2text</item>
+    <item name="dialogTextSub2">@color/darkThemeLevel2subtext</item>
+
+      <item name="textColor">@color/darkThemeLevel1text</item>
+    <item name="textColorMain">@color/darkThemeLevel1text</item>
+      <item name="textColorSub">@color/darkThemeLevel2subtext</item>
+      <item name="titleTextColor">@color/darkThemeLevel1subtext</item>
+      <item name="appBarTextColor">@color/darkThemeLevel1subtext</item>
+  </style>
+
+  <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primaryDark</item>
+    <item name="colorSecondary">@color/primaryDark2</item>
+    <item name="colorAccent">@color/tab3</item>
+    <item name="background">@color/background</item>
+    <item name="tab1">@color/tab1</item>
+    <item name="tab1Dark">@color/tab1Dark</item>
+    <item name="tab2">@color/tab2</item>
+    <item name="tab2Dark">@color/tab2Dark</item>
+    <item name="tab3">@color/tab3</item>
+    <item name="tab3Dark">@color/tab3Dark</item>
+
+    <item name="dialogText">@color/darkThemeLevel1subtext</item>
+    <item name="dialogTextSub">@color/darkThemeLevel1text</item>
+    <item name="dialogText2">@color/darkThemeLevel2subtext</item>
+    <item name="dialogTextSub2">@color/darkThemeLevel2text</item>
+
+      <item name="textColor">@color/darkThemeLevel1text</item>
+      <item name="textColorMain">@color/darkThemeLevel2subtext</item>
+      <item name="textColorSub">@color/darkThemeLevel1text</item>
+      <item name="titleTextColor">@color/tab2</item>
+      <item name="appBarTextColor">#FFFFFF</item>
+  </style>
+
+
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/darkThemeLevel2</item>
+        <item name="android:windowBackground">@drawable/splash_theme</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="RoundedButton">
+        <item name="android:background">@drawable/button_shape</item>>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CalendarCustomTheme">
+        <item name="android:textColor">@color/darkThemeLevel2text</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+    </style>
+
+    <style name="CalendarCustomDateText">
+        <item name="android:textColor">@color/darkThemeLevel2text</item>
+        <item name="android:weekNumberColor">@color/darkThemeLevel2subtext</item>
+    </style>
+
+    <style name="CalendarCustomWeekDateText">
+        <item name="android:textColor">@color/darkThemeLevel2subtext</item>
+    </style>
+
+    <style name="SpinnerCustom">
+        <item name="android:textColor">@color/darkThemeLevel1text</item>
+    </style>
+
+</resources>

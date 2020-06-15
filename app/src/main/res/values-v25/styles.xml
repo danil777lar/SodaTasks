@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalendarCustomTheme">
+        <item name="android:textColor">@color/darkThemeLevel2text</item>
+        <item name="android:textColorPrimary">@color/darkThemeLevel2text</item>
+        <item name="android:colorSecondary">#DC0000</item>
+    </style>
+
+</resources>

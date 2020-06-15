@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="sphere"></string>
+    <string name="task"></string>
+    <string name="goal"></string>
+
+<!--  main-->
+    <string name="ok">Ок</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Редактировать</string>
+<!--      -->
+
+<!--  task strings  -->
+    <string name="filter_option_1">По дням</string>
+    <string name="filter_option_2">По категориям</string>
+    <string name="filter_option_3">Дедлайны</string>
+
+    <string name="to_vertical">д\nо</string>
+    <string name="to_horizontal">до</string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+    <string name="no_tasks">не запланированно</string>
+<!--                -->
+
+<!--   Add_task_dialog -->
+    <string name="at">начать</string>
+    <string name="to">закончить</string>
+
+    <string name="mon">пн</string>
+    <string name="tue">вт</string>
+    <string name="wed">ср</string>
+    <string name="thu">чт</string>
+    <string name="fri">пт</string>
+    <string name="sat">сб</string>
+    <string name="sun">вс</string>
+    <string name="everyday">ежедневно</string>
+    <string name="repeat">повтор</string>
+
+    <string name="edit_task">Изменить задачу</string>
+    <string name="add_task">В список задач</string>
+<!--                   -->
+
+<!--    Add_Edit_dialog-->
+    <string name="set_name">Назовите новый элемент</string>
+    <string name="edit_name">Редактирование элемента</string>
+<!--    -->
+
+<!--    Delete dialog-->
+    <string name="delete_question">Удалить элемент?</string>
+    <string name="delete_description">Данный элемент и все его подпункты будут удалены безвозвратно</string>
+<!--    -->
+
+<!--    Node Open-->
+    <string name="description">Описание</string>
+    <string name="files">Файлы</string>
+    <string name="add_under_element">Добавить подзадачу</string>
+    <string name="done">Выполнено</string>
+    <string name="no_done">Не выполнено</string>
+<!--    -->
+
+    <string name="no_items">Раздел пуст</string>
+    <string name="options">Настройки</string>
+
+
+
+<!--    Settings-->
+    <string name="settings_set_theme_light">Светлая тема</string>
+    <string name="settings_set_theme_dark">Темная тема</string>
+    <string name="settings_set_language">Язык</string>
+    <string name="settings_set_tasks">Отображать на xxx дней вперед</string>
+    <string name="settings_set_notesswitch_on">Включены</string>
+    <string name="settings_set_notesswitch_off">Выключены</string>
+    <string name="settings_set_notestime">Напоминать за xxx минут</string>
+    <string name="settings_set_noad">Отключить рекламу</string>
+    <!--    Titles-->
+        <string name="settings_title_system">Системные</string>
+        <string name="settings_title_tasks">Задачи</string>
+        <string name="settings_title_notification">Напоминания</string>
+        <string name="settings_title_ad">Реклама</string>
+    <!--    -->
+<!--    -->
+
+<!--    Titles-->
+    <string name="widget_title">Задачи на сегодня</string>
+<!--    -->
+    <string name="sphere_filler">Создайте новую категорию</string>
+    <string name="goal_filler">Раздел скоро станет доступен</string>
+
+</resources>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/node_open_root"
+        android:layout_width="314dp"
+        android:layout_height="487dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/node_open_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="?attr/textColorMain"
+            android:text="TextView" />
+
+<!--        <View-->
+<!--            android:id="@+id/node_open_separator"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:background="@color/darkThemeLevel1text"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="239dp"
+            android:background="?attr/colorPrimaryDark"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/node_open_description_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textColor="?attr/textColorSub"
+                android:padding="5dp"
+                android:text="@string/description" />
+
+            <EditText
+                android:id="@+id/node_open_description_field"
+                android:layout_width="match_parent"
+                android:layout_height="202dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/darkThemeLevel2text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/node_open_btn_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/node_open_btn_files_ic"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_files"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/node_open_btn_files_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/darkThemeLevel1text"
+                    android:textSize="17dp"
+                    android:text="@string/files" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/node_open_btn_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/node_open_btn_task_ic"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingHorizontal="0dp"
+                    app:srcCompat="@drawable/ic_task_disable"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/node_open_btn_task_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:textColor="@color/darkThemeLevel2text"
+                    android:text="@string/add_task" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/node_open_btn_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/node_open_btn_new_ic"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingHorizontal="0dp"
+                    app:srcCompat="@drawable/ic_add_custom"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/node_open_btn_new_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:textColor="@color/darkThemeLevel2text"
+                    android:text="@string/add_under_element" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/node_open_btn_chek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/node_open_btn_chek_ic"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_done" />
+
+                <TextView
+                    android:id="@+id/node_open_btn_chek_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17dp"
+                    android:textColor="@color/darkThemeLevel2text"
+                    android:text="@string/no_done" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/node_open_btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/node_open_btn_delete_ic"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/node_open_btn_delete_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17dp"
+                    android:textColor="@color/darkThemeLevel2text"
+                    android:text="@string/delete" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

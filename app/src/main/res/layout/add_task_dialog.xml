@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:tag="root"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/task_type_button_panel"
+            android:tag="calendarClose0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_level2"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_task_dialog_type_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/at"
+                android:textColor="?attr/dialogText2"
+                android:textSize="12dp" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="?attr/dialogTextSub2" />
+
+            <Button
+                android:id="@+id/add_task_dialog_type_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/to"
+                android:textColor="?attr/dialogTextSub2"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_task_dialog_date_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_level2"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/add_task_dialog_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="1.02.2020"
+                android:textColor="?attr/dialogText2"
+                android:textSize="22dp" />
+
+            <View
+                android:tag="calendarOpen0"
+                android:visibility="gone"
+                android:id="@+id/add_task_dialog_date_divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/dialogTextSub2" />
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:visibility="visible"
+                android:tag="calendarOpen1"
+                style="@style/CalendarCustomTheme"
+                android:theme="@style/CalendarCustomTheme"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:dateTextAppearance="@style/CalendarCustomDateText"
+                android:weekDayTextAppearance="@style/CalendarCustomWeekDateText" />
+
+            <View
+                android:id="@+id/add_task_dialog_date_divider3"
+                android:visibility="gone"
+                android:tag="calendarOpen2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/dialogTextSub2" />
+
+            <LinearLayout
+                android:tag="calendarOpen3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/week_day_btn_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day1"
+                    android:text="@string/mon"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day2"
+                    android:text="@string/tue"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day3"
+                    android:text="@string/wed"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day4"
+                    android:text="@string/thu"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day5"
+                    android:text="@string/fri"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day6"
+                    android:text="@string/sat"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+
+                <Button
+                    android:id="@+id/week_day_btn_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:tag="day7"
+                    android:text="@string/sun"
+                    android:textColor="?attr/dialogTextSub2"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <View
+                android:tag="calendarOpen4"
+                android:id="@+id/add_task_dialog_date_divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/dialogTextSub2"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/add_task_dialog_date_ok"
+                android:tag="calendarOpen5"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/ok"
+                android:textColor="?attr/dialogText2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:tag="calendarClose1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/rounded_level2"
+            android:orientation="horizontal">
+
+            <ScrollView
+                android:id="@+id/hour_scroll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/hour_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=":"
+                android:textAlignment="center"
+                android:textColor="@color/darkThemeLevel1text"
+                android:textSize="25dp" />
+
+            <ScrollView
+                android:id="@+id/minute_scroll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/minute_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_task_dialog_delete"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_level2"
+            android:text="@string/delete"
+            android:textColor="@color/darkThemeLevel2text" />
+
+        <LinearLayout
+            android:tag="calendarClose2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_task_dialog_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/cancel"
+                android:textColor="?attr/dialogText" />
+
+            <Button
+                android:id="@+id/add_task_dialog_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/ok"
+                android:textColor="?attr/dialogText" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

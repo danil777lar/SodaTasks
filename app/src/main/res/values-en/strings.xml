@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="sphere"></string>
+    <string name="task"></string>
+    <string name="goal"></string>
+
+<!--  main-->
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+<!--      -->
+
+<!--  task strings  -->
+    <string name="filter_option_1">Days</string>
+    <string name="filter_option_2">Categories</string>
+    <string name="filter_option_3">Deadlines</string>
+
+    <string name="to_vertical">t\no</string>
+    <string name="to_horizontal">to</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="no_tasks">no tasks</string>
+<!--                -->
+
+<!--   Add_task_dialog -->
+    <string name="at">at</string>
+    <string name="to">to</string>
+
+    <string name="mon">mon</string>
+    <string name="tue">tue</string>
+    <string name="wed">wed</string>
+    <string name="thu">thu</string>
+    <string name="fri">fri</string>
+    <string name="sat">sat</string>
+    <string name="sun">sun</string>
+    <string name="everyday">everyday</string>
+    <string name="repeat">repeat</string>
+
+    <string name="edit_task">Edit task</string>
+    <string name="add_task">Add in to do list</string>
+<!--                   -->
+
+<!--    Add_Edit_dialog-->
+    <string name="set_name">Set new item</string>
+    <string name="edit_name">Edit item</string>
+<!--    -->
+
+<!--    Delete dialog-->
+    <string name="delete_question">Delete item?</string>
+    <string name="delete_description">This item and all its subparagraphs will be deleted permanently</string>
+<!--    -->
+
+<!--    Node Open-->
+    <string name="description">Description</string>
+    <string name="files">Files</string>
+    <string name="add_under_element">Add subparagraph</string>
+    <string name="done">Done</string>
+    <string name="no_done">No done</string>
+<!--    -->
+
+    <string name="no_items">No items</string>
+    <string name="options">Settings</string>
+
+
+<!--    Settings-->
+    <string name="settings_set_theme_light">Light theme</string>
+    <string name="settings_set_theme_dark">Dark theme</string>
+    <string name="settings_set_language">Language</string>
+    <string name="settings_set_tasks">Display xxx days in advance</string>
+    <string name="settings_set_notesswitch_on">Enabled</string>
+    <string name="settings_set_notesswitch_off">Disabled</string>
+    <string name="settings_set_notestime">Send a notification xxx minutes before</string>
+    <string name="settings_set_noad">Disable advertisement</string>
+    <!--    Titles-->
+        <string name="settings_title_system">System</string>
+        <string name="settings_title_tasks">Tasks</string>
+        <string name="settings_title_notification">Notification</string>
+        <string name="settings_title_ad">Advertisement</string>
+    <!--    -->
+<!--    -->
+
+<!--    Titles-->
+    <string name="widget_title">To Do List</string>
+<!--    -->
+
+    <string name="sphere_filler">Make new folder</string>
+    <string name="goal_filler">Coming soon</string>
+
+</resources>

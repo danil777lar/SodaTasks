@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/fast_out_slow_in.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "/home/danilka/AndroidStudioProjects/TaskManager/nativetemplates/build/intermediates/res/merged/release/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "/home/danilka/.gradle/caches/transforms-2/files-2.1/4124b23a2d66879dcc3a8c9b754eaa07/appcompat-1.1.0/res/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+    }
+]
