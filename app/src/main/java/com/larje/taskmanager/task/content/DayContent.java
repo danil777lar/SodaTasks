@@ -15,7 +15,9 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.ads.nativetemplates.TemplateView;
 import com.larje.taskmanager.MainActivity;
 import com.larje.taskmanager.R;
 import com.larje.taskmanager.data.DBManager;
@@ -23,6 +25,7 @@ import com.larje.taskmanager.data.DBManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.zip.Inflater;
 
 public class DayContent {
 
@@ -293,5 +296,13 @@ public class DayContent {
         btnRoot.addView(btnLay);
         return btnRoot;
     }
+
+//    private TextView makeAd(){
+//        ConstraintLayout adRoot = (ConstraintLayout) MainActivity.inflater.inflate(R.layout.small_native_template, null);
+//        TextView adView = adRoot.findViewById(R.id.task_native_ad);
+//
+//
+//        return adView;
+//    }
 
 }

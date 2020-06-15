@@ -13,7 +13,7 @@ public class DBCreator  extends SQLiteOpenHelper {
     private Context context;
 
     public DBCreator(Context context){
-        super(context, "tskmanagerdb", null, 7);
+        super(context, "tskmanagerdb", null, 9);
         this.context = context;
     }
 
@@ -32,8 +32,13 @@ public class DBCreator  extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if((oldVersion == 1) & (newVersion == 2)){
             db.execSQL("create table repeattask(id integer primary key autoincrement, task integer, date text, status integer);");
-        } else if (newVersion > 5){
+        }
+        if (oldVersion < 6){
             db.execSQL("create table settings(id integer primary key autoincrement, theme integer, language text, taskdays integer, notswitch integer, nottime integer);");
+            setStandartSettings(db);
+        }
+        if (oldVersion < 9){
+            db.execSQL("alter table settings add column appenternum;");
             setStandartSettings(db);
         }
     }

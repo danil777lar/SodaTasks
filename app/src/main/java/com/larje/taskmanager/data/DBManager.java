@@ -431,6 +431,7 @@ public class DBManager{
             settings.put("taskdays", c.getInt(c.getColumnIndex("taskdays")));
             settings.put("notswitch", c.getInt(c.getColumnIndex("notswitch")));
             settings.put("nottime", c.getInt(c.getColumnIndex("nottime")));
+            settings.put("appenternum", c.getInt(c.getColumnIndex("appenternum")));
         }
         c.close();
         return settings;
@@ -443,6 +444,7 @@ public class DBManager{
         cv.put("taskdays", (int)data.get("taskdays"));
         cv.put("notswitch", (int)data.get("notswitch"));
         cv.put("nottime", (int)data.get("nottime"));
+        cv.put("appenternum", (int)data.get("appenternum"));
         long row = this.db.update("settings", cv, "id = 1", null);
 
     }
