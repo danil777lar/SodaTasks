@@ -3,6 +3,7 @@ package com.larje.taskmanager.task.content;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.util.ArrayMap;
 import android.util.TypedValue;
@@ -17,8 +18,16 @@ import android.widget.ToggleButton;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
 import com.google.android.ads.nativetemplates.TemplateView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.larje.taskmanager.MainActivity;
+import com.larje.taskmanager.NetworkChecker;
+import com.larje.taskmanager.OptionsActivity;
 import com.larje.taskmanager.R;
 import com.larje.taskmanager.data.DBManager;
 
@@ -64,7 +73,7 @@ public class DayContent {
         for (int i = 0; i < dates.size(); i++){
             contentRoot.addView(makeDayNote((ArrayMap) dates.get(i)));
         }
-//        contentRoot.addView(makeAd());
+        contentRoot.addView(makeAd());
 
         return contentRoot;
     }
@@ -297,12 +306,65 @@ public class DayContent {
         return btnRoot;
     }
 
-//    private TextView makeAd(){
-//        ConstraintLayout adRoot = (ConstraintLayout) MainActivity.inflater.inflate(R.layout.small_native_template, null);
-//        TextView adView = adRoot.findViewById(R.id.task_native_ad);
-//
-//
-//        return adView;
-//    }
+    private LinearLayout makeAd(){
+        View layout = MainActivity.inflater.inflate(R.layout.small_native_template, null);
+        final LinearLayout adRoot = layout.findViewById(R.id.task_native_ad_root);;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        params.setMargins(20, 20, 20, 20);
+        adRoot.setPadding(0,0,0,10);
+        adRoot.setLayoutParams(params);
+
+        final TemplateView template = adRoot.findViewById(R.id.task_native_ad);
+
+        TypedValue mainBackgrounColor = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.colorPrimaryDark, mainBackgrounColor, true);
+        final TypedValue finalMainBackgrounColor = mainBackgrounColor;
+
+        TypedValue buttonColor = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.tab2, buttonColor, true);
+        final TypedValue finalbuttonColor = buttonColor;
+
+        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-3940256099942544/2247696110")
+                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        ColorDrawable mainBackground = new ColorDrawable();
+                        mainBackground.setColor(finalMainBackgrounColor.data);
+                        ColorDrawable actionBtnBackground = new ColorDrawable();
+                        actionBtnBackground.setColor(finalbuttonColor.data);
+                        NativeTemplateStyle styles = new NativeTemplateStyle.Builder()
+                                .withMainBackgroundColor(mainBackground)
+                                .withCallToActionBackgroundColor(actionBtnBackground)
+                                .withPrimaryTextTypefaceColor(context.getColor(R.color.darkThemeLevel1subtext))
+                                .withPrimaryTextBackgroundColor(mainBackground)
+                                .withSecondaryTextTypefaceColor(context.getColor(R.color.darkThemeLevel1subtext))
+                                .withSecondaryTextBackgroundColor(mainBackground)
+                                .withTertiaryTextTypefaceColor(context.getColor(R.color.darkThemeLevel1subtext))
+                                .withTertiaryTextBackgroundColor(mainBackground)
+                                .build();
+                        template.setStyles(styles);
+                        template.setNativeAd(unifiedNativeAd);
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                    }
+                })
+                .withNativeAdOptions(new NativeAdOptions.Builder()
+                        // Methods in the NativeAdOptions.Builder class can be
+                        // used here to specify individual options settings.
+                        .build())
+                .build();
+
+        adLoader.loadAd(new AdRequest.Builder().build());
+        if (adLoader.isLoading() && NetworkChecker.isNetworkEnable(context)){
+            adRoot.setVisibility(View.VISIBLE);
+        }
+
+        return adRoot;
+    }
 
 }

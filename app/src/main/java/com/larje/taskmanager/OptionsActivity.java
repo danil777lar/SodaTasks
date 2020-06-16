@@ -169,7 +169,7 @@ public class OptionsActivity extends AppCompatActivity {
                 .build();
 
         adLoader.loadAd(new AdRequest.Builder().build());
-        if (adLoader.isLoading()){
+        if (adLoader.isLoading() && NetworkChecker.isNetworkEnable(this)){
             template.setVisibility(View.VISIBLE);
         }
     }
