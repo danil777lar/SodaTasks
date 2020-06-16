@@ -73,7 +73,11 @@ public class DayContent {
         for (int i = 0; i < dates.size(); i++){
             contentRoot.addView(makeDayNote((ArrayMap) dates.get(i)));
         }
-        contentRoot.addView(makeAd());
+
+        ArrayMap settings = db.GetSettings();
+        if (((int)settings.get("appenternum")%2) != 0){
+            contentRoot.addView(makeAd());
+        }
 
         return contentRoot;
     }
