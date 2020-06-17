@@ -328,7 +328,7 @@ public class DayContent {
         context.getTheme().resolveAttribute(R.attr.tab2, buttonColor, true);
         final TypedValue finalbuttonColor = buttonColor;
 
-        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-3940256099942544/2247696110")
+        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-5090461340767825/9555078439")
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override

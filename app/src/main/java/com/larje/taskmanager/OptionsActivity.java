@@ -133,7 +133,7 @@ public class OptionsActivity extends AppCompatActivity {
         getTheme().resolveAttribute(R.attr.tab2, buttonColor, true);
         final TypedValue finalbuttonColor = buttonColor;
 
-        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-5090461340767825/5671057799")
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override

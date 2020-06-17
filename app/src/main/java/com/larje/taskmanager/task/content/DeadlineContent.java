@@ -142,7 +142,7 @@ public class DeadlineContent {
         tv.setTag("name");
         tv.setLayoutParams(params);
         tv.setText(name);
-        tv.setTypeface(MainActivity.face);
+//        tv.setTypeface(MainActivity.face);
         tv.setTextSize(22);
         tv.setTextColor(context.getColor(R.color.darkThemeLevel2text));
         tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
