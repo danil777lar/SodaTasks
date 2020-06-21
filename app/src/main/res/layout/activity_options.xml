@@ -337,12 +337,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/settings_ad_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginVertical="5dp"
                     android:layout_marginHorizontal="5dp"
                     android:elevation="5dp"
+                    android:visibility="gone"
                     android:background="@drawable/rounded_layout">
 
 

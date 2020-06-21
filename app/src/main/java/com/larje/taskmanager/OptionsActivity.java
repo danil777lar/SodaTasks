@@ -3,6 +3,7 @@ package com.larje.taskmanager;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -87,7 +88,11 @@ public class OptionsActivity extends AppCompatActivity {
 
 
       makeBackButton();
-      makeAds();
+      MyBilling myBilling = new MyBilling(this);
+      if (!myBilling.checkSub()){
+          makeAds();
+          settingsAdButton();
+      }
       settingsSystemTheme();
       settingsSystemLanguage();
       settingsTasks();
@@ -116,7 +121,21 @@ public class OptionsActivity extends AppCompatActivity {
         });
     }
 
+    private void settingsAdButton(){
+        TextView adBtn = findViewById(R.id.settings_ad);
+        final Context context = this;
+        adBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyBilling myBilling = new MyBilling(context);
+                myBilling.makeSub();
+            }
+        });
+    }
+
     private void makeAds(){
+        LinearLayout adCard = findViewById(R.id.settings_ad_card);
+        adCard.setVisibility(View.VISIBLE);
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -133,7 +152,8 @@ public class OptionsActivity extends AppCompatActivity {
         getTheme().resolveAttribute(R.attr.tab2, buttonColor, true);
         final TypedValue finalbuttonColor = buttonColor;
 
-        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-5090461340767825/5671057799")
+//        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-5090461340767825/5671057799")
+        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
@@ -185,7 +205,6 @@ public class OptionsActivity extends AppCompatActivity {
                 themeSwitch.setChecked(true);
                 break;
         }
-        Log.d("settingsid", ""+(int)settings.get("id"));
         themeSwitch.setOnClickListener(new Switch.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -333,11 +352,9 @@ public class OptionsActivity extends AppCompatActivity {
 
     switch ((int)settings.get("theme")){
       case (0):
-//        themeSwitch.setText(getString(R.string.settings_set_theme_light));
         themeSwitch.setChecked(false);
         break;
       case (1):
-//        themeSwitch.setText(getString(R.string.settings_set_theme_dark));
         themeSwitch.setChecked(true);
         break;
     }
@@ -349,12 +366,10 @@ public class OptionsActivity extends AppCompatActivity {
         if (isChecked){
           settings.put("theme", 1);
           db.UpdateSettings(settings);
-//          themeSwitch.setText(getString(R.string.settings_set_theme_dark));
           System.exit(0);
         } else {
           settings.put("theme", 0);
           db.UpdateSettings(settings);
-//          themeSwitch.setText(getString(R.string.settings_set_theme_light));
           System.exit(0);
         }
       }

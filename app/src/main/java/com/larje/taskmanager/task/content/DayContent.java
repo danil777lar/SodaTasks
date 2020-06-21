@@ -26,6 +26,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.larje.taskmanager.MainActivity;
+import com.larje.taskmanager.MyBilling;
 import com.larje.taskmanager.NetworkChecker;
 import com.larje.taskmanager.OptionsActivity;
 import com.larje.taskmanager.R;
@@ -74,9 +75,12 @@ public class DayContent {
             contentRoot.addView(makeDayNote((ArrayMap) dates.get(i)));
         }
 
-        ArrayMap settings = db.GetSettings();
-        if (((int)settings.get("appenternum")%2) != 0){
-            contentRoot.addView(makeAd());
+        MyBilling myBilling = new MyBilling(context);
+        if (!myBilling.checkSub()){
+            ArrayMap settings = db.GetSettings();
+            if (((int)settings.get("appenternum")%2) != 0){
+                contentRoot.addView(makeAd());
+            }
         }
 
         return contentRoot;
@@ -328,7 +332,8 @@ public class DayContent {
         context.getTheme().resolveAttribute(R.attr.tab2, buttonColor, true);
         final TypedValue finalbuttonColor = buttonColor;
 
-        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-5090461340767825/9555078439")
+//        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-5090461340767825/9555078439")
+        AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-3940256099942544/2247696110")
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override

@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         DBManager db = new DBManager(this);
         final ArrayMap settings = db.GetSettings();
         settings.put("appenternum", (int)settings.get("appenternum")+1);
+        if ((int)settings.get("appenternum") > 1000){
+            settings.put("appenternum", 1);
+        }
         db.UpdateSettings(settings);
 
         setContentView(R.layout.activity_main);
