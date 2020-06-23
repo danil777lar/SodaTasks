@@ -3,7 +3,8 @@ package com.larje.taskmanager;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.ArrayMap;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,9 +20,7 @@ import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MyBilling {
 
@@ -29,7 +28,7 @@ public class MyBilling {
 
     private BillingClient billingClient;
     private String subId = "sku_id_1";
-    private Map<String, SkuDetails> skuDetails = new HashMap<>();
+    private ArrayMap<String, SkuDetails> skuDetails = new ArrayMap<>();
 
     public MyBilling(Context context){
         this.context  = context;
@@ -68,8 +67,6 @@ public class MyBilling {
         billingClient.querySkuDetailsAsync(skuBuilder.build(), new SkuDetailsResponseListener() {
             @Override
             public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
-                Log.d("billing", ""+billingResult.getResponseCode());
-                Log.d("billing", billingResult.getDebugMessage());
                 if (billingResult.getResponseCode() == 0){
                     for (SkuDetails details : list){
                         skuDetails.put(details.getSku(), details);

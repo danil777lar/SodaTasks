@@ -91,7 +91,7 @@ public class OptionsActivity extends AppCompatActivity {
       MyBilling myBilling = new MyBilling(this);
       if (!myBilling.checkSub()){
           makeAds();
-          settingsAdButton();
+          settingsAdButton(myBilling);
       }
       settingsSystemTheme();
       settingsSystemLanguage();
@@ -121,13 +121,11 @@ public class OptionsActivity extends AppCompatActivity {
         });
     }
 
-    private void settingsAdButton(){
+    private void settingsAdButton(final MyBilling myBilling){
         TextView adBtn = findViewById(R.id.settings_ad);
-        final Context context = this;
         adBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyBilling myBilling = new MyBilling(context);
                 myBilling.makeSub();
             }
         });

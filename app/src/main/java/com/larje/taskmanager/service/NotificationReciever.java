@@ -7,6 +7,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -66,8 +68,9 @@ public class NotificationReciever extends BroadcastReceiver {
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setDefaults(Notification.DEFAULT_ALL)
                         .setContentIntent(contentIntent);
+        Notification notification = notificationBuilder.build();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify((int)taskElement.get("id"), notificationBuilder.build());
+        notificationManager.notify((int)taskElement.get("id"), notification);
     }
 
 }
