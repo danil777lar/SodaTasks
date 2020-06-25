@@ -62,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
         DBManager db = new DBManager(this);
         final ArrayMap settings = db.GetSettings();
-        settings.put("appenternum", (int)settings.get("appenternum")+1);
+        int appEnterNum = (int)settings.get("appenternum")+1;
+        settings.put("appenternum", appEnterNum);
         if ((int)settings.get("appenternum") > 1000){
             settings.put("appenternum", 1);
         }
         db.UpdateSettings(settings);
+        makeSubDialog(appEnterNum);
 
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -323,5 +325,11 @@ public class MainActivity extends AppCompatActivity {
         });
         colorAnim.start();
         colorAnimDark.start();
+    }
+
+    private void makeSubDialog(int appEnterNum){
+        if (NetworkChecker.isNetworkEnable(this) && appEnterNum == 2){
+            MyBilling myBilling = new MyBilling(this, getSupportFragmentManager(), true);
+        }
     }
 }

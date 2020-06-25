@@ -26,7 +26,14 @@ public class GoalScreen {
         filler.setTextSize(30);
         filler.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         filler.setTypeface(MainActivity.face);
-        filler.setTextColor(Color.parseColor("#FFCC80"));
+        switch (MainActivity.theme){
+            case 0:
+                filler.setTextColor(Color.parseColor("#F57C00"));
+                break;
+            case 1:
+                filler.setTextColor(Color.parseColor("#FFCC80"));
+                break;
+        }
 
         return filler;
     }

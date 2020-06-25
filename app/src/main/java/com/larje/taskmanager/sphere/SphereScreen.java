@@ -20,11 +20,13 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -89,6 +91,8 @@ public class SphereScreen {
         final ScrollView scroll = new ScrollView(context);
         ScrollView.LayoutParams scroll_params = new ScrollView.LayoutParams(ScrollView.LayoutParams.MATCH_PARENT, ScrollView.LayoutParams.MATCH_PARENT);
         scroll.setLayoutParams(scroll_params);
+        scroll.setHorizontalScrollBarEnabled(false);
+        scroll.setVerticalScrollBarEnabled(false);
 
         LinearLayout root = new LinearLayout(context);
         root.setOrientation(LinearLayout.VERTICAL);
@@ -101,7 +105,7 @@ public class SphereScreen {
 
         ArrayList data = db.GetChildren(-1);
         if (data.size() == 0){
-            makeNoDataFiller(root);
+            makeNoDataFiller(root, scroll);
         }
         for (int i = 0; i < data.size(); i++){
             final ArrayMap element = (ArrayMap) data.get(i);
@@ -308,7 +312,7 @@ public class SphereScreen {
             sphere.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(final View v, MotionEvent event) {
-                    ValueAnimator tch_down = ValueAnimator.ofInt(Color.red(primary), Color.red(primary)-14);
+                    @SuppressLint("ClickableViewAccessibility") ValueAnimator tch_down = ValueAnimator.ofInt(Color.red(primary), Color.red(primary)-14);
                     tch_down.setDuration(500);
                     tch_down.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                         @Override
@@ -318,6 +322,7 @@ public class SphereScreen {
                                 ValueAnimator anim_back = ValueAnimator.ofInt(Color.red(primary)-14, Color.red(primary));
                                 anim_back.setDuration(100);
                                 anim_back.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                                    @SuppressLint("ClickableViewAccessibility")
                                     @Override
                                     public void onAnimationUpdate(ValueAnimator animation) {
                                         v.findViewWithTag("centerline").setBackgroundColor(Color.rgb((int)animation.getAnimatedValue(),(int) animation.getAnimatedValue(),(int)animation.getAnimatedValue()));
@@ -335,32 +340,48 @@ public class SphereScreen {
 
             root.addView(sphere);
        }
-        TextView bottom_space = new TextView(context);
-        bottom_space.setText(" ");
-        bottom_space.setPadding(0,70,0,70);
-        root.addView(bottom_space);
+        if (data.size() > 0) {
+            TextView bottom_space = new TextView(context);
+            bottom_space.setText(" ");
+            bottom_space.setPadding(0, 70, 0, 70);
+            root.addView(bottom_space);
+        }
+
         scroll.addView(root);
         scroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                PlaceholderFragment.scrolly = scrollY;
-            }
-        });
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    PlaceholderFragment.scrolly = scrollY;
+                }
+            });
 
         return scroll;
     }
 
 
-    private void makeNoDataFiller(LinearLayout root){
-        TextView filler = new TextView(context);
-        filler.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 800));
-        filler.setText(context.getString(R.string.sphere_filler));
-        filler.setGravity(Gravity.CENTER);
-        filler.setTextSize(30);
-        filler.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        filler.setTypeface(MainActivity.face);
-        filler.setTextColor(Color.parseColor("#CE93D8"));
-        root.addView(filler);
+    private void makeNoDataFiller(final LinearLayout root, final ScrollView scroll){
+        scroll.post(new Runnable() {
+            @Override
+            public void run() {
+                TextView filler = new TextView(context);
+                filler.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, scroll.getMeasuredHeight()));
+                filler.setText(context.getString(R.string.sphere_filler));
+                filler.setTextSize(30);
+                filler.setGravity(Gravity.CENTER);
+                filler.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                filler.setTypeface(MainActivity.face);
+                switch (MainActivity.theme){
+                    case 0:
+                        filler.setTextColor(Color.parseColor("#7B1FA2"));
+                        break;
+                    case 1:
+                        filler.setTextColor(Color.parseColor("#CE93D8"));
+                        break;
+                }
+                root.setGravity(Gravity.CENTER);
+                root.addView(filler);
+            }
+        });
     }
 
     public void StartAnim(){

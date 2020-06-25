@@ -51,6 +51,18 @@
     <string name="delete_description">Данный элемент и все его подпункты будут удалены безвозвратно</string>
 <!--    -->
 
+<!--    Reboot Dialog-->
+    <string name="reboot_info">Для подтверждения изменений необходимо перезагрузить приложение</string>
+    <string name="reboot_btn">Перезагрузить</string>
+<!--    -->
+
+<!--    Sub dlg Dialog-->
+    <string name="sub_dlg_title">Привет!</string>
+    <string name="sub_dlg_info">Мы хотим сделать приложение полностью бесплатным для вас, и в этом нам помогает реклама.\n Но вы можете отключить ее сейчас или в настройках</string>
+    <string name="sub_dlg_no">Не хочу</string>
+    <string name="sub_dlg_yes">Отключить</string>
+<!--    -->
+
 <!--    Node Open-->
     <string name="description">Описание</string>
     <string name="files">Файлы</string>

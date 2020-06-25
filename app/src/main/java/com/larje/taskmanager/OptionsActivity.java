@@ -55,6 +55,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.tabs.TabLayout;
 import com.larje.taskmanager.data.DBManager;
+import com.larje.taskmanager.optionDialogs.RebootDialog;
 import com.larje.taskmanager.optionDialogs.SettingsLanguageDialog;
 import com.larje.taskmanager.ui.main.PlaceholderFragment;
 import com.larje.taskmanager.ui.main.SectionsPagerAdapter;
@@ -88,11 +89,10 @@ public class OptionsActivity extends AppCompatActivity {
 
 
       makeBackButton();
-      MyBilling myBilling = new MyBilling(this);
-      if (!myBilling.checkSub()){
-          makeAds();
-          settingsAdButton(myBilling);
-      }
+
+      MyBilling myBilling = makeAds();
+      settingsAdButton(myBilling);
+
       settingsSystemTheme();
       settingsSystemLanguage();
       settingsTasks();
@@ -131,7 +131,7 @@ public class OptionsActivity extends AppCompatActivity {
         });
     }
 
-    private void makeAds(){
+    private MyBilling makeAds(){
         LinearLayout adCard = findViewById(R.id.settings_ad_card);
         adCard.setVisibility(View.VISIBLE);
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -187,9 +187,15 @@ public class OptionsActivity extends AppCompatActivity {
                 .build();
 
         adLoader.loadAd(new AdRequest.Builder().build());
+
+        MyBilling myBilling;
         if (adLoader.isLoading() && NetworkChecker.isNetworkEnable(this)){
-            template.setVisibility(View.VISIBLE);
+            myBilling = new MyBilling(this, getSupportFragmentManager(), template);
+        } else {
+            myBilling = new MyBilling(this, getSupportFragmentManager());
         }
+
+        return myBilling;
     }
 
     private void settingsSystemTheme(){
@@ -277,7 +283,9 @@ public class OptionsActivity extends AppCompatActivity {
         ArrayMap settings = db.GetSettings();
         settings.put("language", lang.toLowerCase());
         db.UpdateSettings(settings);
-        System.exit(0);
+        RebootDialog dlg = new RebootDialog();
+        dlg.setCancelable(false);
+        dlg.show(getSupportFragmentManager(), "s");
     }
 
     public void settingsNotificationTime(){
@@ -364,11 +372,15 @@ public class OptionsActivity extends AppCompatActivity {
         if (isChecked){
           settings.put("theme", 1);
           db.UpdateSettings(settings);
-          System.exit(0);
+            RebootDialog dlg = new RebootDialog();
+            dlg.setCancelable(false);
+            dlg.show(getSupportFragmentManager(), "s");
         } else {
           settings.put("theme", 0);
           db.UpdateSettings(settings);
-          System.exit(0);
+            RebootDialog dlg = new RebootDialog();
+            dlg.setCancelable(false);
+            dlg.show(getSupportFragmentManager(), "s");
         }
       }
     });

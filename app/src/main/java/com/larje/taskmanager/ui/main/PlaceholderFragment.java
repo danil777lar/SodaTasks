@@ -62,6 +62,8 @@ public class PlaceholderFragment extends Fragment {
     public static int taskFilterOption = 0;
     public static int taskScrollY = 0;
 
+    public static FragmentManager fm;
+
     private int index;
     private SphereScreen sphere;
     private PageViewModel pageViewModel;
@@ -86,11 +88,12 @@ public class PlaceholderFragment extends Fragment {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        fm = this.getParentFragmentManager();
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         RelativeLayout rel_layout = root.findViewById(R.id.rel_layout);
 
@@ -159,7 +162,7 @@ public class PlaceholderFragment extends Fragment {
         catch (java.lang.NullPointerException e){}
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void makeSphere(RelativeLayout rel_layout, Boolean anim){
         SphereScreen sphere = new SphereScreen(getContext(), opened_sphereid, closed_sphereid, getFragmentManager(), anim);
         this.sphere = sphere;

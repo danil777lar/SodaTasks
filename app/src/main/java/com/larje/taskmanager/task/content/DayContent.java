@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.ads.nativetemplates.NativeTemplateStyle;
 import com.google.android.ads.nativetemplates.TemplateView;
@@ -31,6 +32,7 @@ import com.larje.taskmanager.NetworkChecker;
 import com.larje.taskmanager.OptionsActivity;
 import com.larje.taskmanager.R;
 import com.larje.taskmanager.data.DBManager;
+import com.larje.taskmanager.ui.main.PlaceholderFragment;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -75,12 +77,9 @@ public class DayContent {
             contentRoot.addView(makeDayNote((ArrayMap) dates.get(i)));
         }
 
-        MyBilling myBilling = new MyBilling(context);
-        if (!myBilling.checkSub()){
-            ArrayMap settings = db.GetSettings();
-            if (((int)settings.get("appenternum")%2) != 0){
-                contentRoot.addView(makeAd());
-            }
+        ArrayMap settings = db.GetSettings();
+        if (((int)settings.get("appenternum")%2) == 0){
+            contentRoot.addView(makeAd());
         }
 
         return contentRoot;
@@ -370,7 +369,7 @@ public class DayContent {
 
         adLoader.loadAd(new AdRequest.Builder().build());
         if (adLoader.isLoading() && NetworkChecker.isNetworkEnable(context)){
-            adRoot.setVisibility(View.VISIBLE);
+            MyBilling myBilling = new MyBilling(context, PlaceholderFragment.fm, adRoot);
         }
 
         return adRoot;

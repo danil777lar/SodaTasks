@@ -4,20 +4,23 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.ArrayMap;
-import android.widget.Toast;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchaseHistoryResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
+import com.larje.taskmanager.optionDialogs.RebootDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +28,33 @@ import java.util.List;
 public class MyBilling {
 
     private Context context;
+    private FragmentManager fm;
 
     private BillingClient billingClient;
     private String subId = "sku_id_1";
     private ArrayMap<String, SkuDetails> skuDetails = new ArrayMap<>();
 
-    public MyBilling(Context context){
+    private Boolean checkResult = null;
+    private View adView;
+    private Boolean subDialog;
+
+    public MyBilling(Context context, FragmentManager fm){
         this.context  = context;
+        this.fm = fm;
+        makeBillingInstance();
+    }
+
+    public MyBilling(Context context, FragmentManager fm, View adView){
+        this.context  = context;
+        this.fm = fm;
+        this.adView = adView;
+        makeBillingInstance();
+    }
+
+    public MyBilling(Context context, FragmentManager fm, Boolean subDialog){
+        this.context  = context;
+        this.fm = fm;
+        this.subDialog = subDialog;
         makeBillingInstance();
     }
 
@@ -40,7 +63,12 @@ public class MyBilling {
             @Override
             public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
 //              Покупка сделана
-                System.exit(0);
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && list != null){
+                    RebootDialog reboot = new RebootDialog();
+                    reboot.setCancelable(false);
+                    reboot.show(fm, "s");
+                    billingClient.endConnection();
+                }
             }
         }).enablePendingPurchases().build();
 
@@ -48,7 +76,20 @@ public class MyBilling {
             @Override
             public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
 //              Узнаем о покупках
-                getSkuInfo();
+                if (billingResult.getResponseCode() == 0){
+                    getSkuInfo();
+                    List<Purchase> purchases = billingClient.queryPurchases(BillingClient.SkuType.SUBS).getPurchasesList();
+                    checkResult = false;
+                    for (int i = 0; i < purchases.size(); i++) {
+                        String pId = purchases.get(i).getSku();
+                        if (TextUtils.equals(subId, pId)) {
+                            checkResult = true;
+                        }
+                    }
+                } else {
+                    checkResult = false;
+                }
+                sendResult(checkResult);
             }
 
             @Override
@@ -76,18 +117,15 @@ public class MyBilling {
         });
     }
 
-    public boolean checkSub(){
-        List<Purchase> purchases = ((Purchase.PurchasesResult) billingClient.queryPurchases(BillingClient.SkuType.SUBS)).getPurchasesList();
-
-        if (purchases != null){
-            for(int i = 0; i < purchases.size(); i++){
-                String pId = purchases.get(i).getSku();
-                if (TextUtils.equals(subId, pId)){
-                    return true;
-                }
+    private void sendResult(Boolean checkResult){
+        if (!checkResult){
+            if (adView != null){
+                adView.setVisibility(View.VISIBLE);
+            } else if (subDialog == true){
+                SubDialog dlg = new SubDialog(this);
+                dlg.show(fm, "s");
             }
         }
-        return false;
     }
 
     public void makeSub(){

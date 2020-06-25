@@ -51,7 +51,20 @@
     <string name="delete_description">This item and all its subparagraphs will be deleted permanently</string>
 <!--    -->
 
-<!--    Node Open-->
+<!--    Reboot Dialog-->
+    <string name="reboot_info">To confirm the changes, you must restart the application</string>
+    <string name="reboot_btn">Restart</string>
+<!--    -->
+
+<!--    Sub dlg Dialog-->
+    <string name="sub_dlg_title">Hello!</string>
+    <string name="sub_dlg_info">We want to make the application completely free for you, and advertising helps us with this.\n But you can disable it now or later in the settings</string>
+    <string name="sub_dlg_no">Later</string>
+    <string name="sub_dlg_yes">Disable</string>
+<!--    -->
+
+
+    <!--    Node Open-->
     <string name="description">Description</string>
     <string name="files">Files</string>
     <string name="add_under_element">Add subparagraph</string>

@@ -54,7 +54,7 @@ public class DBCreator  extends SQLiteOpenHelper {
         cv.put("taskdays", 2);
         cv.put("notswitch", 1);
         cv.put("nottime", 15);
-        cv.put("appenternum", 2);
+        cv.put("appenternum", 0);
         long row = db.insert("settings", null,  cv);
     }
 
